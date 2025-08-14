@@ -1,0 +1,6 @@
+@RenderingService.Presentation_HostAddress = http://localhost:5026
+
+GET {{RenderingService.Presentation_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
