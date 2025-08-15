@@ -1,0 +1,15 @@
+﻿global using AutoMapper;
+global using FormsService.Application.Commands;
+global using FormsService.Application.Constants;
+global using FormsService.Domain.Entities;
+global using FormsService.Domain.Enums;
+global using FormsService.Infrastructure.Handlers;
+global using FormsService.Infrastructure.Metrics;
+global using FormsService.Infrastructure.Persistence;
+global using Microsoft.AspNetCore.Http;
+global using Microsoft.EntityFrameworkCore;
+global using Moq;
+global using Shared.Common.Contracts;
+global using Shared.Common.Events;
+global using FluentValidation;
+global using FluentValidation.Results;

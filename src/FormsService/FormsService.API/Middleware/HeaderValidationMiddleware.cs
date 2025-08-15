@@ -1,4 +1,6 @@
-﻿namespace FormsService.API.Middleware
+﻿using System.Text.Json;
+
+namespace FormsService.API.Middleware
 {
     public class HeaderValidationMiddleware(RequestDelegate next)
     {
@@ -9,7 +11,20 @@
             if (!ctx.Request.Headers.TryGetValue(HeaderKeys.TenantId, out var tenant) || string.IsNullOrWhiteSpace(tenant))
             {
                 ctx.Response.StatusCode = StatusCodes.Status400BadRequest;
-                await ctx.Response.WriteAsync($"Missing required header: {HeaderKeys.TenantId}");
+                ctx.Response.ContentType = "application/json";
+                var errorResponse = new
+                {
+                    ResponseCode = 400,
+                    ResponseMessage = "Bad Request",
+                    Errors = new List<string> { "Missing required header: " + HeaderKeys.TenantId }
+                };
+
+                var json = JsonSerializer.Serialize(errorResponse, new JsonSerializerOptions
+                {
+                    PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+                    WriteIndented = false
+                });
+                await ctx.Response.WriteAsync(json);
                 return;
             }
             ctx.Items[HeaderKeys.TenantId] = tenant.ToString();

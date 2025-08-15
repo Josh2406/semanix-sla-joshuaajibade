@@ -37,9 +37,11 @@
                 form.UpdatedAt = DateTime.UtcNow;
                 await _context.SaveChangesAsync(cancellationToken);
                 response = new BaseResponse { Errors = [], ResponseCode = 200, ResponseMessage = "Form archived successfully" };
+                Log.Information("Form {FormId} archived successfully", request.FormId); 
             }
             catch (Exception ex) 
             {
+                Log.Error("Error archiving form {FormId}: {Message}", request.FormId, ex.Message);
                 response = new BaseResponse
                 {
                     Errors = [ex.Message],

@@ -1,12 +1,16 @@
-﻿namespace FormsService.Infrastructure.Handlers
+﻿using FormsService.Infrastructure.Metrics;
+
+namespace FormsService.Infrastructure.Handlers
 {
-    public class PublishFormHandler(FormsDbContext context, IHttpContextAccessor accessor, IMapper mapper, IEventBus eventBus): 
+    public class PublishFormHandler(FormsDbContext context, IHttpContextAccessor accessor, IMapper mapper, IEventBus eventBus,
+        IFormsMetrics metrics) : 
             IRequestHandler<PublishFormCommand, BaseResponse>
     {
         private readonly FormsDbContext _context = context;
         private readonly IHttpContextAccessor _contextAccessor = accessor;
         private readonly IMapper _mapper = mapper;
         private readonly IEventBus _eventBus = eventBus;
+        private readonly IFormsMetrics _metrics = metrics;
 
         public async Task<BaseResponse> Handle(PublishFormCommand request, CancellationToken cancellationToken)
         {
@@ -40,16 +44,21 @@
                 form.PublishedAt = DateTime.UtcNow;
                 await _context.SaveChangesAsync(cancellationToken);
 
+                _metrics.IncrementFormPublished();
+
                 var formPublished = _mapper.Map<FormPublishedEvent>(form);
                 await _eventBus.PublishAsync(formPublished, cancellationToken);
+                Log.Information("Form published successfully. FormId: {FormId}, TenantId: {TenantId}", form.Id, tenantId);
 
                 var formUpdated = _mapper.Map<FormUpdatedEvent>(form);
                 await _eventBus.PublishAsync(formUpdated, cancellationToken);
+                Log.Information("Form updated successfully. FormId: {FormId}, TenantId: {TenantId}", form.Id, tenantId);
 
                 response = new BaseResponse { Errors = [], ResponseCode = 200, ResponseMessage = "Form published successfully" };
             }
             catch (Exception ex)
             {
+                Log.Error(ex, "Error publishing form. FormId: {FormId}, TenantId: {TenantId}", request.FormId, _contextAccessor.HttpContext.Items[HeaderKeys.TenantId]);
                 response = new BaseResponse
                 {
                     Errors = [ex.Message],

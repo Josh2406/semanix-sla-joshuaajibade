@@ -8,3 +8,4 @@ global using RenderingService.Domain.Models;
 global using RenderingService.Domain.Constants;
 global using Shared.Common.Events;
 global using System.Text.Json;
+global using Serilog;

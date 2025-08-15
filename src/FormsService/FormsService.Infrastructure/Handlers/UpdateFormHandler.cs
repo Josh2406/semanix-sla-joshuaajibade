@@ -59,11 +59,15 @@
 
                 var formUpdated = _mapper.Map<FormUpdatedEvent>(form);
                 await _eventBus.PublishAsync(formUpdated, cancellationToken);
+                Log.Information("Form updated successfully. FormId: {FormId}, TenantId: {TenantId}, PreviousState: {PreviousState}, NewState: {NewState}",
+                    form.Id, tenantId, previousState, form.State);
 
                 response = new BaseResponse { Errors = [], ResponseCode = 200, ResponseMessage = "Form updated successfully." };
             }
             catch (Exception ex)
             {
+                Log.Error(ex, "Error updating form. FormId: {FormId}, TenantId: {TenantId}", request.FormId, 
+                    _contextAccessor.HttpContext.Items[HeaderKeys.TenantId]);
                 response = new BaseResponse
                 {
                     Errors = [ex.Message],

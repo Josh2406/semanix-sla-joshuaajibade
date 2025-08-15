@@ -1,4 +1,6 @@
-﻿namespace FormsService.Infrastructure
+﻿using FormsService.Infrastructure.Metrics;
+
+namespace FormsService.Infrastructure
 {
     public static class ConfigureServices
     {
@@ -8,6 +10,7 @@
             services.AddScoped<IDbConnection>(_ => new SqlConnection(configuration.GetConnectionString("DefaultConnection")));
 
             services.AddScoped<IQueryRepository, QueryRepository>();
+            services.AddSingleton<IFormsMetrics, FormsMetrics>();
 
             return services;
         }

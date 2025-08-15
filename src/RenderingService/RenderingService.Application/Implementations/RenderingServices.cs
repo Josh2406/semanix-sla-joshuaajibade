@@ -2,6 +2,7 @@
 using RenderingService.Domain.Entities;
 using RenderingService.Infrastructure.Repository.Command;
 using RenderingService.Infrastructure.Repository.Query;
+using Serilog;
 
 namespace RenderingService.Application.Implementations
 {
@@ -18,6 +19,7 @@ namespace RenderingService.Application.Implementations
             }
             catch (Exception ex)
             {
+                Log.Error(ex, "Error creating or updating rendered form. FormId: {FormId}, TenantId: {TenantId}", form.Id, form.TenantId);
                 return false;
             }
         }
@@ -30,6 +32,7 @@ namespace RenderingService.Application.Implementations
             }
             catch (Exception ex)
             {
+                Log.Error(ex, "Error retrieving rendered form. FormId: {FormId}, TenantId: {TenantId}", id, tenantId);  
                 return null;
             }
         }
@@ -42,6 +45,7 @@ namespace RenderingService.Application.Implementations
             }
             catch (Exception ex)
             {
+                Log.Error("Error retrieving rendered forms for tenant {TenantId}: {Message}", tenantId, ex.Message);
                 return [];
             }
         }

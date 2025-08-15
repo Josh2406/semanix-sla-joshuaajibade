@@ -6,3 +6,4 @@ global using RenderingService.Domain.Entities;
 global using System.Data;
 global using Microsoft.EntityFrameworkCore;
 global using Microsoft.EntityFrameworkCore.Design;
+global using Serilog;

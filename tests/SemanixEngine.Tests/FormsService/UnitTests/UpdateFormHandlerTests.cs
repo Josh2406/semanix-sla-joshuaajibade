@@ -1,19 +1,4 @@
-﻿using AutoMapper;
-using FluentValidation;
-using FluentValidation.Results;
-using FormsService.Application.Commands;
-using FormsService.Application.Constants;
-using FormsService.Domain.Entities;
-using FormsService.Domain.Enums;
-using FormsService.Infrastructure.Handlers;
-using FormsService.Infrastructure.Persistence;
-using Microsoft.AspNetCore.Http;
-using Microsoft.EntityFrameworkCore;
-using Moq;
-using Shared.Common.Contracts;
-using Shared.Common.Events;
-
-namespace SemanixEngine.Tests.FormsService.UnitTests
+﻿namespace SemanixEngine.Tests.FormsService.UnitTests
 {
     [TestFixture]
     public class UpdateFormHandlerTests

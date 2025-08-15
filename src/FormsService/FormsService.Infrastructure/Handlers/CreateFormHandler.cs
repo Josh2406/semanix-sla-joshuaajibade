@@ -45,9 +45,13 @@
                     ResponseCode = 200,
                     ResponseMessage = "Form created successfully."
                 };
+                Log.Information("Form created successfully. FormId: {FormId}, TenantId: {TenantId}, EntityId: {EntityId}", form.Id, tenantId, entityId);
             }
             catch (Exception ex)
             {
+                Log.Error(ex, "Error creating form. TenantId: {TenantId}, EntityId: {EntityId}", 
+                    _contextAccessor.HttpContext.Items[HeaderKeys.TenantId], 
+                    _contextAccessor.HttpContext.Items.TryGetValue(HeaderKeys.EntityId, out var v) ? v?.ToString() : null);
                 response = new BaseResponse<CreateFormResponse>
                 {
                     Errors = [ex.Message],

@@ -19,3 +19,5 @@ global using FormsService.Application.Queries;
 global using AutoMapper;
 global using Shared.Common.Contracts;
 global using Shared.Common.Events;
+global using Prometheus;
+global using Serilog;

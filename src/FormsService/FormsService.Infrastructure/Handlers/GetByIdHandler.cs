@@ -33,6 +33,7 @@
             }
             catch (Exception ex)
             {
+                Log.Error(ex, "Error retrieving form. FormId: {FormId}, TenantId: {TenantId}", request.FormId, _contextAccessor.HttpContext.Items[HeaderKeys.TenantId]);
                 response = new BaseResponse<FormDto>
                 {
                     Errors = [ex.Message],

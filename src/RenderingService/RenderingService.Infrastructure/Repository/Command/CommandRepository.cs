@@ -28,7 +28,7 @@
             }
             catch (Exception ex)
             {
-
+                Log.Error(ex, "Error creating or updating rendered form. FormId: {FormId}, EntityId: {EntityId}", form.Id, form.EntityId);
             }
             return response;
         }

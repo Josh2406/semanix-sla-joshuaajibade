@@ -1,0 +1,46 @@
+version: "3.9"
+
+services:
+  forms-service:
+    build:
+      context: ./FormsService
+      dockerfile: Dockerfile
+    container_name: forms-service
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Server=.\SQLEXPRESS;Database=FormsServiceDB;User Id=sa;Password=YourStrong!Passw0rd;
+      - Serilog__MinimumLevel=Information
+      - Serilog__WriteTo__0__Name=Console
+    ports:
+      - "5000:8080"
+    depends_on:
+      - db
+
+  rendering-service:
+    build:
+      context: ./RenderingService
+      dockerfile: Dockerfile
+    container_name: rendering-service
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Server=.\SQLEXPRESS;Database=RenderingServiceDB;User Id=sa;Password=YourStrong!Passw0rd;
+      - Serilog__MinimumLevel=Information
+      - Serilog__WriteTo__0__Name=Console
+    ports:
+      - "5001:8080"
+    depends_on:
+      - db
+
+  db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: sqlserver
+    environment:
+      SA_PASSWORD: "YourStrong!Passw0rd"
+      ACCEPT_EULA: "Y"
+    ports:
+      - "1433:1433"
+    volumes:
+      - sql_data:/var/opt/mssql
+
+volumes:
+  sql_data:
