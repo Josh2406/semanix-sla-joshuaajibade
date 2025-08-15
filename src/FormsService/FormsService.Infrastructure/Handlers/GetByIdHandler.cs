@@ -1,5 +1,5 @@
 ﻿using FormsService.Application.Constants;
-using FormsService.Application.Contracts;
+using FormsService.Application.Interfaces;
 using FormsService.Application.Models.Response;
 using FormsService.Application.Queries;
 using MediatR;

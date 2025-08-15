@@ -1,5 +1,5 @@
 ﻿using Dapper;
-using FormsService.Application.Contracts;
+using FormsService.Application.Interfaces;
 using FormsService.Application.Models.Response;
 using System.Data;
 

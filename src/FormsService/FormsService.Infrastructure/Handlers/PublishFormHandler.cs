@@ -1,14 +1,15 @@
 ﻿using AutoMapper;
 using FormsService.Application.Commands;
 using FormsService.Application.Constants;
-using FormsService.Application.Contracts;
+using FormsService.Application.Interfaces;
 using FormsService.Application.Models.Response;
 using FormsService.Domain.Enums;
-using FormsService.Domain.Events;
 using FormsService.Infrastructure.Persistence;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
+using Shared.Common.Contracts;
+using Shared.Common.Events;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -1,11 +1,12 @@
-﻿using FormsService.Application.Contracts;
-using FormsService.Infrastructure.Messaging;
+﻿using FormsService.Application.Interfaces;
 using FormsService.Infrastructure.Persistence;
 using FormsService.Infrastructure.Repository;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Shared.Common.Contracts;
+using Shared.Common.Messaging;
 using System.Data;
 
 namespace FormsService.Infrastructure

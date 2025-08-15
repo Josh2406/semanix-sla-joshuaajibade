@@ -23,6 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Shared\Shared.Common\Shared.Common.csproj" />
     <ProjectReference Include="..\FormsService.Application\FormsService.Application.csproj" />
     <ProjectReference Include="..\FormsService.Domain\FormsService.Domain.csproj" />
   </ItemGroup>

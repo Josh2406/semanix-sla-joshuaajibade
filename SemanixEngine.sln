@@ -25,6 +25,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormsService.API", "src\For
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RenderingService.API", "src\RenderingService\RenderingService.API\RenderingService.API.csproj", "{2CD9BDAE-4450-43AC-A4EE-B5045AE1E6E7}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{48957EF2-006E-4AFB-A164-A8452FE3748C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared.Common", "src\Shared\Shared.Common\Shared.Common.csproj", "{A6E4EA9D-93AE-4832-961C-E14DBF6CFBB9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,6 +63,10 @@ Global
 		{2CD9BDAE-4450-43AC-A4EE-B5045AE1E6E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2CD9BDAE-4450-43AC-A4EE-B5045AE1E6E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2CD9BDAE-4450-43AC-A4EE-B5045AE1E6E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6E4EA9D-93AE-4832-961C-E14DBF6CFBB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6E4EA9D-93AE-4832-961C-E14DBF6CFBB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6E4EA9D-93AE-4832-961C-E14DBF6CFBB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6E4EA9D-93AE-4832-961C-E14DBF6CFBB9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -73,6 +81,8 @@ Global
 		{D39FCC90-9A1D-4190-B621-B74651151E8C} = {6CBFF880-F3E2-49B3-84D1-C37CD4F88AA2}
 		{6063F31B-F0FB-47A8-B91A-0F3316BC5042} = {313ACA2E-3CAD-4EE6-8CBA-ABC05BB2E06B}
 		{2CD9BDAE-4450-43AC-A4EE-B5045AE1E6E7} = {DA6E4178-43F1-40E7-A4A6-8F08B29A1D29}
+		{48957EF2-006E-4AFB-A164-A8452FE3748C} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{A6E4EA9D-93AE-4832-961C-E14DBF6CFBB9} = {48957EF2-006E-4AFB-A164-A8452FE3748C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F3A55557-8691-441F-9388-5770D16DE8C9}

@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using FormsService.Application.Models.Response;
 using FormsService.Domain.Entities;
-using FormsService.Domain.Events;
+using Shared.Common.Events;
 
 namespace FormsService.Application.Mapping
 {

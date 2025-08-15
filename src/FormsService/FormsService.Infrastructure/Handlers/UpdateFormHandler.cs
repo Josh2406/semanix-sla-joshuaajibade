@@ -2,14 +2,14 @@
 using FluentValidation;
 using FormsService.Application.Commands;
 using FormsService.Application.Constants;
-using FormsService.Application.Contracts;
 using FormsService.Application.Models.Response;
 using FormsService.Domain.Enums;
-using FormsService.Domain.Events;
 using FormsService.Infrastructure.Persistence;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
+using Shared.Common.Contracts;
+using Shared.Common.Events;
 
 namespace FormsService.Infrastructure.Handlers
 {
@@ -62,7 +62,6 @@ namespace FormsService.Infrastructure.Handlers
 
                 var previousState = form.State;
 
-                form.State = request.State;
                 form.Name = request.Name;
                 form.Description = request.Description;
                 form.JsonPayload = request.JsonPayload;
@@ -73,12 +72,6 @@ namespace FormsService.Infrastructure.Handlers
 
                 var formUpdated = _mapper.Map<FormUpdatedEvent>(form);
                 await _eventBus.PublishAsync(formUpdated, cancellationToken);
-
-                if(request.State == FormState.Published && previousState == FormState.Draft)
-                {
-                    var formPublished = _mapper.Map<FormPublishedEvent>(form);
-                    await _eventBus.PublishAsync(formPublished, cancellationToken);
-                }
 
                 response = new BaseResponse { Errors = [], ResponseCode = 200, ResponseMessage = "Form updated successfully." };
             }

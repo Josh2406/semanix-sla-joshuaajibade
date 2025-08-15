@@ -1,4 +1,4 @@
-﻿namespace FormsService.Application.Contracts
+﻿namespace Shared.Common.Contracts
 {
     public interface IEventBus
     {

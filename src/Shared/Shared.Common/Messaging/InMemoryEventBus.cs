@@ -1,7 +1,7 @@
-﻿using FormsService.Application.Contracts;
-using Microsoft.Extensions.Logging;
+﻿using Microsoft.Extensions.Logging;
+using Shared.Common.Contracts;
 
-namespace FormsService.Infrastructure.Messaging
+namespace Shared.Common.Messaging
 {
     public class InMemoryEventBus(ILogger<InMemoryEventBus> logger, IEnumerable<IInMemoryEventHandler> handlers) : IEventBus
     {

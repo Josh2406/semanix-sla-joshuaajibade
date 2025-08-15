@@ -1,9 +1,9 @@
-﻿using FormsService.Application.Contracts;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using Shared.Common.Contracts;
 using System.Net.Http.Json;
 
-namespace FormsService.Infrastructure.Messaging
+namespace Shared.Common.Messaging 
 {
     public class EngineCommsBridge(IHttpClientFactory httpFactory, IConfiguration configuration, ILogger<EngineCommsBridge> logger) 
         : IInMemoryEventHandler
