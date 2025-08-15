@@ -1,13 +1,4 @@
-﻿using FormsService.Application.Commands;
-using FormsService.Application.Constants;
-using FormsService.Application.Models.Response;
-using FormsService.Domain.Enums;
-using FormsService.Infrastructure.Persistence;
-using MediatR;
-using Microsoft.AspNetCore.Http;
-using Microsoft.EntityFrameworkCore;
-
-namespace FormsService.Infrastructure.Handlers
+﻿namespace FormsService.Infrastructure.Handlers
 {
     public class ArchiveFormHandler(FormsDbContext context, IHttpContextAccessor accessor) : 
             IRequestHandler<ArchiveFormCommand, BaseResponse>
@@ -43,7 +34,7 @@ namespace FormsService.Infrastructure.Handlers
                 }
 
                 form.State = FormState.Archived;
-                form.LastModified = DateTime.UtcNow;
+                form.UpdatedAt = DateTime.UtcNow;
                 await _context.SaveChangesAsync(cancellationToken);
                 response = new BaseResponse { Errors = [], ResponseCode = 200, ResponseMessage = "Form archived successfully" };
             }

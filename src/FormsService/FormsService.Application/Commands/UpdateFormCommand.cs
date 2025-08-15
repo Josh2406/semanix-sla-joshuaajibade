@@ -1,8 +1,4 @@
-﻿using FormsService.Application.Models.Response;
-using MediatR;
-using System.Text.Json.Serialization;
-
-namespace FormsService.Application.Commands
+﻿namespace FormsService.Application.Commands
 {
     public class UpdateFormCommand: IRequest<BaseResponse>
     {

@@ -1,0 +1,10 @@
+﻿global using FormsService.Application.Constants;
+global using FormsService.API.Middleware;
+global using FormsService.Application;
+global using FormsService.Infrastructure;
+global using Shared.Common;
+global using System.Reflection;
+global using FormsService.Application.Commands;
+global using FormsService.Application.Queries;
+global using MediatR;
+global using Microsoft.AspNetCore.Mvc;

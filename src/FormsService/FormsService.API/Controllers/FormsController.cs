@@ -1,9 +1,4 @@
-﻿using FormsService.Application.Commands;
-using FormsService.Application.Queries;
-using MediatR;
-using Microsoft.AspNetCore.Mvc;
-
-namespace FormsService.API.Controllers
+﻿namespace FormsService.API.Controllers
 {
     [Route("api/v1/forms")]
     [ApiController]

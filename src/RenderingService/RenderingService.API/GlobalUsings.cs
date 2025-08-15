@@ -1,0 +1,10 @@
+﻿global using RenderingService.Application;
+global using RenderingService.Infrastructure;
+global using Shared.Common;
+global using Microsoft.AspNetCore.Mvc;
+global using RenderingService.Application.Interfaces;
+global using RenderingService.Domain.Entities;
+global using RenderingService.Domain.Models;
+global using RenderingService.Domain.Constants;
+global using Shared.Common.Events;
+global using System.Text.Json;

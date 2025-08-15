@@ -1,7 +1,4 @@
-﻿using Microsoft.Extensions.Logging;
-using Shared.Common.Contracts;
-
-namespace Shared.Common.Messaging
+﻿namespace Shared.Common.Messaging
 {
     public class InMemoryEventBus(ILogger<InMemoryEventBus> logger, IEnumerable<IInMemoryEventHandler> handlers) : IEventBus
     {

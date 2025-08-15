@@ -1,10 +1,4 @@
-﻿using FluentValidation;
-using FormsService.Application.Commands;
-using FormsService.Application.Validators;
-using Microsoft.Extensions.DependencyInjection;
-using FormsService.Application.Mapping;
-
-namespace FormsService.Application
+﻿namespace FormsService.Application
 {
     public static class ConfigureServices
     {

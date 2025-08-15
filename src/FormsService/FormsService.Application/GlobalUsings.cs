@@ -1,0 +1,16 @@
+﻿global using FluentValidation;
+global using FormsService.Application.Commands;
+global using FormsService.Application.Validators;
+global using Microsoft.Extensions.DependencyInjection;
+global using FormsService.Application.Mapping;
+global using FormsService.Application.Extensions;
+global using FormsService.Application.Models.Response;
+global using MediatR;
+global using FormsService.Domain.Enums;
+global using AutoMapper;
+global using FormsService.Domain.Entities;
+global using Shared.Common.Events;
+global using FormsService.Application.Models.Request;
+global using System.Text.Json;
+global using System.ComponentModel.DataAnnotations;
+global using System.Text.Json.Serialization;

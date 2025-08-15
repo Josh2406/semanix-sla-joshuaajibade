@@ -1,11 +1,4 @@
-﻿using FormsService.Application.Constants;
-using FormsService.Application.Interfaces;
-using FormsService.Application.Models.Response;
-using FormsService.Application.Queries;
-using MediatR;
-using Microsoft.AspNetCore.Http;
-
-namespace FormsService.Infrastructure.Handlers
+﻿namespace FormsService.Infrastructure.Handlers
 {
     public class GetByIdHandler(IHttpContextAccessor accessor, IQueryRepository repository) : 
             IRequestHandler<GetFormByIdQuery, BaseResponse<FormDto>>

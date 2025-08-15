@@ -1,11 +1,4 @@
-using FormsService.API.Middleware;
-using FormsService.Application;
-using FormsService.Infrastructure;
-using FormsService.Infrastructure.Persistence;
-using Microsoft.Data.SqlClient;
-using Microsoft.EntityFrameworkCore;
-using System.Data;
-using System.Reflection;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,14 +15,15 @@ var configuration = builder.Configuration;
 builder.Services.AddMediatR(cfg =>
 {
     cfg.RegisterServicesFromAssemblies(
-        Assembly.GetExecutingAssembly(),                  // API (if any handlers are here)
-        Assembly.Load("FormsService.Application"),         // Application layer
-        Assembly.Load("FormsService.Infrastructure")       // Optional if you have handlers here
+        Assembly.GetExecutingAssembly(), 
+        Assembly.Load("FormsService.Application"), 
+        Assembly.Load("FormsService.Infrastructure")
     );
 });
 
 builder.Services.AddApplicationServices();
 builder.Services.AddInfrastructureServices(configuration);
+builder.Services.AddSharedCommonServices();
 
 builder.Services.AddControllers();
 

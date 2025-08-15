@@ -1,6 +1,4 @@
-﻿using FormsService.Domain.Enums;
-
-namespace FormsService.Application.Models.Response
+﻿namespace FormsService.Application.Models.Response
 {
     public class FormDto
     {

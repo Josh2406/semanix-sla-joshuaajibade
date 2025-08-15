@@ -1,8 +1,4 @@
-﻿using FluentValidation;
-using FormsService.Application.Commands;
-using FormsService.Application.Extensions;
-
-namespace FormsService.Application.Validators
+﻿namespace FormsService.Application.Validators
 {
     public class CreateFormCommandValidator : AbstractValidator<CreateFormCommand>
     {

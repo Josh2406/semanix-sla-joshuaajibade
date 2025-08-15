@@ -1,22 +1,4 @@
-﻿using AutoMapper;
-using FormsService.Application.Commands;
-using FormsService.Application.Constants;
-using FormsService.Application.Interfaces;
-using FormsService.Application.Models.Response;
-using FormsService.Domain.Enums;
-using FormsService.Infrastructure.Persistence;
-using MediatR;
-using Microsoft.AspNetCore.Http;
-using Microsoft.EntityFrameworkCore;
-using Shared.Common.Contracts;
-using Shared.Common.Events;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FormsService.Infrastructure.Handlers
+﻿namespace FormsService.Infrastructure.Handlers
 {
     public class PublishFormHandler(FormsDbContext context, IHttpContextAccessor accessor, IMapper mapper, IEventBus eventBus): 
             IRequestHandler<PublishFormCommand, BaseResponse>
@@ -54,7 +36,8 @@ namespace FormsService.Infrastructure.Handlers
                 }
 
                 form.State = FormState.Published;
-                form.LastModified = DateTime.UtcNow;
+                form.UpdatedAt = DateTime.UtcNow;
+                form.PublishedAt = DateTime.UtcNow;
                 await _context.SaveChangesAsync(cancellationToken);
 
                 var formPublished = _mapper.Map<FormPublishedEvent>(form);

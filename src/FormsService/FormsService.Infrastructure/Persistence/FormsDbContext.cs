@@ -1,7 +1,4 @@
-﻿using FormsService.Domain.Entities;
-using Microsoft.EntityFrameworkCore;
-
-namespace FormsService.Infrastructure.Persistence
+﻿namespace FormsService.Infrastructure.Persistence
 {
     public class FormsDbContext : DbContext
     {

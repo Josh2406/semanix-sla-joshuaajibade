@@ -1,16 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Emit;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace RenderingService.Infrastructure.Persistence
+﻿namespace RenderingService.Infrastructure.Persistence
 {
-    public class RenderingDbContext : DbContext
+    public class RenderingDbContext(DbContextOptions<RenderingDbContext> options) : DbContext(options)
     {
-        public RenderingDbContext(DbContextOptions<RenderingDbContext> options) : base(options) { }
         public DbSet<RenderedForm> RenderedForms => Set<RenderedForm>();
 
         protected override void OnModelCreating(ModelBuilder b)

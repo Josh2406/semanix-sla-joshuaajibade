@@ -1,0 +1,8 @@
+﻿global using RenderingService.Infrastructure.Persistence;
+global using RenderingService.Infrastructure.Repository.Command;
+global using RenderingService.Infrastructure.Repository.Query;
+global using Dapper;
+global using RenderingService.Domain.Entities;
+global using System.Data;
+global using Microsoft.EntityFrameworkCore;
+global using Microsoft.EntityFrameworkCore.Design;

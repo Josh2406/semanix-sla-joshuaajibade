@@ -1,6 +1,4 @@
-﻿using FormsService.Application.Models.Response;
-
-namespace FormsService.Application.Interfaces
+﻿namespace FormsService.Infrastructure.Repository
 {
     public interface IQueryRepository
     {

@@ -1,6 +1,4 @@
-﻿using FormsService.Application.Constants;
-
-namespace FormsService.API.Middleware
+﻿namespace FormsService.API.Middleware
 {
     public class HeaderValidationMiddleware(RequestDelegate next)
     {

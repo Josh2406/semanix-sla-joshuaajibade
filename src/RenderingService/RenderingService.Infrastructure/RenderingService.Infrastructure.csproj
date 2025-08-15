@@ -22,7 +22,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Messaging\" />
+	  <ProjectReference Include="..\RenderingService.Domain\RenderingService.Domain.csproj" />
 	</ItemGroup>
 
 </Project>

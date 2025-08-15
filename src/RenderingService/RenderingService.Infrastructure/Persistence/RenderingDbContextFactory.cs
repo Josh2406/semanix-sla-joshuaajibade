@@ -1,7 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Design;
-
-namespace RenderingService.Infrastructure.Persistence
+﻿namespace RenderingService.Infrastructure.Persistence
 {
     internal class RenderingDbContextFactory: IDesignTimeDbContextFactory<RenderingDbContext>
     {

@@ -1,17 +1,4 @@
-﻿using AutoMapper;
-using FluentValidation;
-using FormsService.Application.Commands;
-using FormsService.Application.Constants;
-using FormsService.Application.Models.Response;
-using FormsService.Domain.Enums;
-using FormsService.Infrastructure.Persistence;
-using MediatR;
-using Microsoft.AspNetCore.Http;
-using Microsoft.EntityFrameworkCore;
-using Shared.Common.Contracts;
-using Shared.Common.Events;
-
-namespace FormsService.Infrastructure.Handlers
+﻿namespace FormsService.Infrastructure.Handlers
 {
     public class UpdateFormHandler(FormsDbContext context, IEventBus eventBus, IValidator<UpdateFormCommand> validator, 
         IHttpContextAccessor accessor, IMapper mapper) : IRequestHandler<UpdateFormCommand, BaseResponse>
@@ -66,7 +53,7 @@ namespace FormsService.Infrastructure.Handlers
                 form.Description = request.Description;
                 form.JsonPayload = request.JsonPayload;
                 form.Version++;
-                form.LastModified = DateTime.UtcNow;
+                form.UpdatedAt = DateTime.UtcNow;
 
                 await _context.SaveChangesAsync(cancellationToken);
 

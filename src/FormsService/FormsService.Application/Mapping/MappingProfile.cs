@@ -1,9 +1,4 @@
-﻿using AutoMapper;
-using FormsService.Application.Models.Response;
-using FormsService.Domain.Entities;
-using Shared.Common.Events;
-
-namespace FormsService.Application.Mapping
+﻿namespace FormsService.Application.Mapping
 {
     public class MappingProfile: Profile
     {
