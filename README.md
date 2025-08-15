@@ -68,76 +68,72 @@ b. **Prometheus**
 
 ### 📂 Project Structure
 
-```mermaid
-graph TD
-    A[SemanixEngine]
-    
-    A --> B[src]
-    A --> T[tests]
+SemanixEngine
+├───src
+│   │
+│   ├───FormsService
+│   │   │
+│   │   ├───FormsService.API
+│   │   │   │
+│   │   │   ├───Controllers  
+│   │   │   ├───Middleware
+│   │   │
+│   │   ├───FormsService.Application
+│   │   │   │
+│   │   │   ├───Commands
+│   │   │   ├───Constants 
+│   │   │   ├───Extensions
+│   │   │   ├───Mapping
+│   │   │   ├───Models
+│   │   │   │   ├───Request
+│   │   │   │   └───Response
+│   │   │   ├───Queries
+│   │   │   └───Validators
+│   │   │
+│   │   ├───FormsService.Domain
+│   │   │   ├───Entities
+│   │   │   ├───Enums
+│   │   │
+│   │   └───FormsService.Infrastructure
+│   │       ├───Handlers
+│   │       ├───Metrics
+│   │       ├───Migrations
+│   │       ├───Persistence
+│   │       └───Repository
+│   │
+│   ├───RenderingService
+│   │   │
+│   │   ├───RenderingService.API
+│   │   │   ├───Controllers
+│   │   │
+│   │   ├───RenderingService.Application
+│   │   │   ├───Implementations
+│   │   │   ├───Interfaces
+│   │   │
+│   │   ├───RenderingService.Domain
+│   │   │   ├───Constants
+│   │   │   ├───Entities
+│   │   │   ├───Models
+│   │   │
+│   │   └───RenderingService.Infrastructure
+│   │       ├───Migrations
+│   │       ├───Persistence
+│   │       └───Repository
+│   │           ├───Command
+│   │           └───Query
+│   │
+│   └───Shared
+│       └───Shared.Common
+│           ├───Contracts
+│           ├───Events
+│           └───Messaging
+│
+└───tests
+    └───SemanixEngine.Tests
+        └───FormsService
+            ├───IntegrationTests
+            └───UnitTests
 
-    %% FormsService
-    B --> B1[FormsService]
-    B1 --> B1A[FormsService.API]
-    B1A --> B1A1[Controllers]
-    B1A --> B1A2[Middleware]
-
-    B1 --> B1B[FormsService.Application]
-    B1B --> B1B1[Commands]
-    B1B --> B1B2[Constants]
-    B1B --> B1B3[Extensions]
-    B1B --> B1B4[Mapping]
-    B1B --> B1B5[Models]
-    B1B5 --> B1B5A[Request]
-    B1B5 --> B1B5B[Response]
-    B1B --> B1B6[Queries]
-    B1B --> B1B7[Validators]
-
-    B1 --> B1C[FormsService.Domain]
-    B1C --> B1C1[Entities]
-    B1C --> B1C2[Enums]
-
-    B1 --> B1D[FormsService.Infrastructure]
-    B1D --> B1D1[Handlers]
-    B1D --> B1D2[Metrics]
-    B1D --> B1D3[Migrations]
-    B1D --> B1D4[Persistence]
-    B1D --> B1D5[Repository]
-
-    %% RenderingService
-    B --> B2[RenderingService]
-    B2 --> B2A[RenderingService.API]
-    B2A --> B2A1[Controllers]
-
-    B2 --> B2B[RenderingService.Application]
-    B2B --> B2B1[Implementations]
-    B2B --> B2B2[Interfaces]
-
-    B2 --> B2C[RenderingService.Domain]
-    B2C --> B2C1[Constants]
-    B2C --> B2C2[Entities]
-    B2C --> B2C3[Models]
-
-    B2 --> B2D[RenderingService.Infrastructure]
-    B2D --> B2D1[Migrations]
-    B2D --> B2D2[Persistence]
-    B2D --> B2D3[Repository]
-    B2D3 --> B2D3A[Command]
-    B2D3 --> B2D3B[Query]
-
-    %% Shared
-    B --> B3[Shared]
-    B3 --> B3A[Shared.Common]
-    B3A --> B3A1[Contracts]
-    B3A --> B3A2[Events]
-    B3A --> B3A3[Messaging]
-
-    %% Tests
-    T --> T1[SemanixEngine.Tests]
-    T1 --> T1A[FormsService]
-    T1A --> T1A1[IntegrationTests]
-    T1A --> T1A2[UnitTests]
-
-```
 
 
 ### 🏗 Architecture
