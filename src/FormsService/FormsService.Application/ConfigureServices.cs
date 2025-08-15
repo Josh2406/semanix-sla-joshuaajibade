@@ -2,6 +2,7 @@
 using FormsService.Application.Commands;
 using FormsService.Application.Validators;
 using Microsoft.Extensions.DependencyInjection;
+using FormsService.Application.Mapping;
 
 namespace FormsService.Application
 {
@@ -11,7 +12,11 @@ namespace FormsService.Application
         {
             services.AddScoped<IValidator<CreateFormCommand>, CreateFormCommandValidator>();
             services.AddScoped<IValidator<UpdateFormCommand>, UpdateFormCommandValidator>();
-           
+
+            services.AddAutoMapper(cfg =>
+            {
+                cfg.AddProfile<MappingProfile>();
+            });
 
             return services;
         }

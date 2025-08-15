@@ -1,5 +1,6 @@
 ﻿using FluentValidation;
 using FormsService.Application.Commands;
+using FormsService.Application.Constants;
 using FormsService.Application.Models.Response;
 using FormsService.Domain.Entities;
 using FormsService.Infrastructure.Persistence;
@@ -18,7 +19,7 @@ namespace FormsService.Infrastructure.Handlers
 
         public async Task<BaseResponse<CreateFormResponse>> Handle(CreateFormCommand request, CancellationToken cancellationToken)
         {
-            BaseResponse <CreateFormResponse> response;
+            BaseResponse<CreateFormResponse> response;
             try
             {
                 var validationResult = await _validator.ValidateAsync(request, cancellationToken);
@@ -32,8 +33,8 @@ namespace FormsService.Infrastructure.Handlers
                     };
                 }
 
-                var tenantId = _contextAccessor.HttpContext.Items[""]!.ToString()!;
-                string? entityId = _contextAccessor.HttpContext.Items.TryGetValue("", out var v) ? v?.ToString() : null;
+                var tenantId = _contextAccessor.HttpContext.Items[HeaderKeys.TenantId]!.ToString()!;
+                string? entityId = _contextAccessor.HttpContext.Items.TryGetValue(HeaderKeys.EntityId, out var v) ? v?.ToString() : null;
 
                 var form = new Form
                 {
@@ -41,8 +42,9 @@ namespace FormsService.Infrastructure.Handlers
                     EntityId = entityId,
                     Name = request.Name,
                     Description = request.Description,
-                    JsonPayload = request.JsonPayload,
+                    JsonPayload = request.JsonPayload
                 };
+
                 _context.Forms.Add(form);
                 await _context.SaveChangesAsync(cancellationToken);
 
@@ -50,7 +52,7 @@ namespace FormsService.Infrastructure.Handlers
                 {
                     Data = new CreateFormResponse { FormId = form.Id },
                     ResponseCode = 200,
-                    ResponseMessage = "Form created successfully"
+                    ResponseMessage = "Form created successfully."
                 };
             }
             catch (Exception ex)

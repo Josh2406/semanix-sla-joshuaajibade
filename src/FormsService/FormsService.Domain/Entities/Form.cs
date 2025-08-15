@@ -11,6 +11,8 @@ namespace FormsService.Domain.Entities
         public string? Description { get; set; }
         public string JsonPayload { get; set; } = default!;
         public int Version { get; set; } = 1;
+        public DateTime DateCreated { get; set; } = DateTime.UtcNow;
+        public DateTime? LastModified { get; set; }
         public FormState State { get; set; } = FormState.Draft;
     }
 }

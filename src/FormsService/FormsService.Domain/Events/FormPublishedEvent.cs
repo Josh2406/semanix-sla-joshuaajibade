@@ -1,4 +1,6 @@
-﻿namespace FormsService.Domain.Events
+﻿using FormsService.Domain.Enums;
+
+namespace FormsService.Domain.Events
 {
     public class FormPublishedEvent
     {
@@ -7,5 +9,6 @@
         public string? EntityId { get; set; }
         public int Version { get; set; }
         public string JsonPayload { get; set; } = default!;
+        public FormState State { get; set; }
     }
 }
