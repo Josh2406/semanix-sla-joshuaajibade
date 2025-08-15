@@ -9,7 +9,7 @@ namespace FormsService.Application.Extensions
         {
             try
             {
-                var payload = JsonSerializer.Deserialize<JsonPayloadDto>(json);
+                var payload = JsonSerializer.Deserialize<JsonPayloadDto>(json, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
                 if (payload != null && payload.Sections != null && payload.Sections.Count > 0)
                 {
                     var fieldTypes = new List<string> { "text", "number", "date", "dropdown", "checkbox" };

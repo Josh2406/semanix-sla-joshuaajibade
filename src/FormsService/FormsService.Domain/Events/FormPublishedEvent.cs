@@ -10,5 +10,6 @@ namespace FormsService.Domain.Events
         public int Version { get; set; }
         public string JsonPayload { get; set; } = default!;
         public FormState State { get; set; }
+        public DateTime PublishedAt { get; set; } = DateTime.UtcNow;
     }
 }
