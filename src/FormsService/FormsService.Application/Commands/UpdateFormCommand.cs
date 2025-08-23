@@ -6,6 +6,6 @@
         public Guid FormId { get; set; }
         public string Name { get; set; } = default!;
         public string? Description { get; set; }
-        public string JsonPayload { get; set; } = default!;
+        public object JsonPayload { get; set; } = default!;
     }
 }

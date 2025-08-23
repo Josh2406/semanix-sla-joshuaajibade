@@ -1,4 +1,6 @@
-﻿namespace FormsService.Infrastructure.Handlers
+﻿using System.Text.Json;
+
+namespace FormsService.Infrastructure.Handlers
 {
     public class UpdateFormHandler(FormsDbContext context, IEventBus eventBus, IValidator<UpdateFormCommand> validator, 
         IHttpContextAccessor accessor, IMapper mapper) : IRequestHandler<UpdateFormCommand, BaseResponse>
@@ -51,7 +53,7 @@
 
                 form.Name = request.Name;
                 form.Description = request.Description;
-                form.JsonPayload = request.JsonPayload;
+                form.JsonPayload = JsonSerializer.Serialize(request.JsonPayload, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
                 form.Version++;
                 form.UpdatedAt = DateTime.UtcNow;
 

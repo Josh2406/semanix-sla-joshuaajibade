@@ -2,11 +2,12 @@
 {
     public static class StringExtensions
     {
-        public static bool IsValidJsonPayload(string json)
+        public static bool IsValidJsonPayload(object json)
         {
             try
             {
-                var payload = JsonSerializer.Deserialize<JsonPayloadDto>(json, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+                var jsonString = json.ToString();
+                var payload = JsonSerializer.Deserialize<JsonPayloadDto>(jsonString!, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
                 if (payload != null && payload.Sections != null && payload.Sections.Count > 0)
                 {
                     var fieldTypes = new List<string> { "text", "number", "date", "dropdown", "checkbox" };

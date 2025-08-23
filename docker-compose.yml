@@ -1,5 +1,3 @@
-version: "3.9"
-
 services:
   forms-service:
     build:
@@ -8,7 +6,7 @@ services:
     container_name: forms-service
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - ConnectionStrings__DefaultConnection=Server=.\SQLEXPRESS;Database=FormsServiceDB;User Id=sa;Password=YourStrong!Passw0rd;
+      - ConnectionStrings__DefaultConnection=Server=db;Database=FormsServiceDB;User Id=sa;Password=YourStrong!Passw0rd;
       - Serilog__MinimumLevel=Information
       - Serilog__WriteTo__0__Name=Console
     ports:
@@ -23,7 +21,7 @@ services:
     container_name: rendering-service
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - ConnectionStrings__DefaultConnection=Server=.\SQLEXPRESS;Database=RenderingServiceDB;User Id=sa;Password=YourStrong!Passw0rd;
+      - ConnectionStrings__DefaultConnection=Server=db;Database=RenderingServiceDB;User Id=sa;Password=YourStrong!Passw0rd;
       - Serilog__MinimumLevel=Information
       - Serilog__WriteTo__0__Name=Console
     ports:

@@ -1,8 +1,10 @@
-﻿namespace RenderingService.Infrastructure.Repository.Query
+﻿using RenderingService.Domain.Models;
+
+namespace RenderingService.Infrastructure.Repository.Query
 {
     public interface IQueryRepository
     {
-        Task<RenderedForm?> GetRenderedFormById(Guid id, string tenantId, CancellationToken cancellationToken);
-        Task<List<RenderedForm>> GetRenderedFormsByTenant(string tenantId, CancellationToken cancellationToken);
+        Task<RenderedFormDto?> GetRenderedFormById(Guid id, string tenantId, CancellationToken cancellationToken);
+        Task<List<RenderedFormDto>> GetRenderedFormsByTenant(string tenantId, CancellationToken cancellationToken);
     }
 }

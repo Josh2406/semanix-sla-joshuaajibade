@@ -1,4 +1,7 @@
-﻿namespace FormsService.Infrastructure.Handlers
+﻿using FormsService.Application.Models.Request;
+using System.Text.Json;
+
+namespace FormsService.Infrastructure.Handlers
 {
     public class CreateFormHandler(FormsDbContext context, IValidator<CreateFormCommand> validator, IHttpContextAccessor contextAccessor) : 
             IRequestHandler<CreateFormCommand, BaseResponse<CreateFormResponse>>
@@ -33,7 +36,7 @@
                     EntityId = entityId,
                     Name = request.Name,
                     Description = request.Description,
-                    JsonPayload = request.JsonPayload
+                    JsonPayload = JsonSerializer.Serialize(request.JsonPayload, new JsonSerializerOptions { PropertyNameCaseInsensitive = true })
                 };
 
                 _context.Forms.Add(form);

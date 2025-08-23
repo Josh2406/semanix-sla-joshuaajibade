@@ -18,7 +18,7 @@
                 });
 
             var list = await _renderingService.GetRenderedForms(tenant, CancellationToken.None);
-            return Ok(new BaseResponse<List<RenderedForm>>
+            return Ok(new BaseResponse<List<RenderedFormDto>>
             {
                 Data = list,
                 ResponseCode = 200,

@@ -1,5 +1,6 @@
 ﻿using RenderingService.Application.Interfaces;
 using RenderingService.Domain.Entities;
+using RenderingService.Domain.Models;
 using RenderingService.Infrastructure.Repository.Command;
 using RenderingService.Infrastructure.Repository.Query;
 using Serilog;
@@ -24,7 +25,7 @@ namespace RenderingService.Application.Implementations
             }
         }
 
-        public async Task<RenderedForm?> GetRenderedForm(Guid id, string tenantId, CancellationToken cancellationToken)
+        public async Task<RenderedFormDto?> GetRenderedForm(Guid id, string tenantId, CancellationToken cancellationToken)
         {
             try
             {
@@ -37,7 +38,7 @@ namespace RenderingService.Application.Implementations
             }
         }
 
-        public async Task<List<RenderedForm>> GetRenderedForms(string tenantId, CancellationToken cancellationToken)
+        public async Task<List<RenderedFormDto>> GetRenderedForms(string tenantId, CancellationToken cancellationToken)
         {
             try
             {
