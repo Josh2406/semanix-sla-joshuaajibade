@@ -16,6 +16,7 @@
                     existingForm.JsonPayload = form.JsonPayload;
                     existingForm.Version = form.Version;
                     existingForm.UpdatedAtUtc = DateTime.UtcNow;
+                    existingForm.LastEvent = form.LastEvent;
                     _context.RenderedForms.Update(existingForm);
                     _context.Entry(existingForm).State = EntityState.Modified;
                 }

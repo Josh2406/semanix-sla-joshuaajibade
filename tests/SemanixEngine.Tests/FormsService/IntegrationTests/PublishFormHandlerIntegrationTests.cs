@@ -41,7 +41,7 @@
             _mapperMock.Setup(Setup => Setup.Map<FormPublishedEvent>(It.IsAny<Form>()))
                 .Returns(new FormPublishedEvent
                 {
-                    FormId = Guid.NewGuid(),
+                    PublishedFormId = Guid.NewGuid(),
                     TenantId = "tenant-123",
                     Name = "Test Form",
                     PublishedAt = DateTime.UtcNow,
@@ -51,7 +51,7 @@
             _mapperMock.Setup(Setup => Setup.Map<FormUpdatedEvent>(It.IsAny<Form>()))
                 .Returns(new FormUpdatedEvent
                 {
-                    FormId = Guid.NewGuid(),
+                    UpdatedFormId = Guid.NewGuid(),
                     TenantId = "tenant-124",
                     Name = "Test Form-2",
                     UpdatedAt = DateTime.UtcNow,

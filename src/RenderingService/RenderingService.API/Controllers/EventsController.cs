@@ -18,13 +18,13 @@
 
             RenderedForm form = null;
             var published = JsonSerializer.Deserialize<FormPublishedEvent>(eventJson, _jsonSerializerOptions);
-            if (published != null && published.PublishedAt != DateTime.MinValue)
+            if (published != null && published.PublishedFormId != Guid.Empty)
             {
                 form = new RenderedForm
                 {
                     Description = published.Description,
                     EntityId = published.EntityId,
-                    Id = published.FormId,
+                    Id = published.PublishedFormId,
                     JsonPayload = published.JsonPayload,
                     LastEvent = EventActions.PUBLISH,
                     Name = published.Name,
@@ -36,13 +36,13 @@
             else
             {
                 var updated = JsonSerializer.Deserialize<FormUpdatedEvent>(eventJson, _jsonSerializerOptions);
-                if (updated != null && updated.UpdatedAt != DateTime.MinValue)
+                if (updated != null && updated.UpdatedFormId != Guid.Empty)
                 {
                     form = new RenderedForm
                     {
                         Description = updated.Description,
                         EntityId = updated.EntityId,
-                        Id = updated.FormId,
+                        Id = updated.UpdatedFormId,
                         JsonPayload = updated.JsonPayload,
                         LastEvent = EventActions.UPDATE,
                         Name = updated.Name,

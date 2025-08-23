@@ -5,11 +5,11 @@
         public MappingProfile() 
         {
             CreateMap<Form, FormUpdatedEvent>()
-                .ForMember(x => x.FormId, opt => opt.MapFrom(x => x.Id))
+                .ForMember(x => x.UpdatedFormId, opt => opt.MapFrom(x => x.Id))
                 .ReverseMap();
 
             CreateMap<Form, FormPublishedEvent>()
-                .ForMember(x => x.FormId, opt => opt.MapFrom(x => x.Id))
+                .ForMember(x => x.PublishedFormId, opt => opt.MapFrom(x => x.Id))
                 .ReverseMap();
 
             CreateMap<Form, FormDto>().ReverseMap();

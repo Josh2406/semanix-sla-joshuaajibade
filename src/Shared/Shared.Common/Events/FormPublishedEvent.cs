@@ -2,7 +2,7 @@
 {
     public class FormPublishedEvent
     {
-        public Guid FormId { get; set; }
+        public Guid PublishedFormId { get; set; }
         public string TenantId { get; set; } = default!;
         public string? EntityId { get; set; }
         public int Version { get; set; }

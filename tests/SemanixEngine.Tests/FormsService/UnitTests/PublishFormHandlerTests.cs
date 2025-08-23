@@ -8,6 +8,7 @@
         private Mock<IEventBus> _eventBusMock;
         private FormsDbContext _dbContext;
         private PublishFormHandler _handler;
+        private Mock<IFormsMetrics> _metricsMock;
 
         private const string TenantId = "tenant-123";
 
@@ -29,8 +30,10 @@
             // Setup mocks
             _mapperMock = new Mock<IMapper>();
             _eventBusMock = new Mock<IEventBus>();
+            _metricsMock = new Mock<IFormsMetrics>();
 
-            _handler = new PublishFormHandler(_dbContext, _httpContextAccessorMock.Object, _mapperMock.Object, _eventBusMock.Object);
+            _handler = new PublishFormHandler(_dbContext, _httpContextAccessorMock.Object, _mapperMock.Object, _eventBusMock.Object, 
+                _metricsMock.Object);
         }
 
         [TearDown]
